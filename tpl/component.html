@@ -1,0 +1,114 @@
+<!--首页消息列表-->
+<template id="_tpl_msg_list" template>
+    [: for(var i=0,d=data.length;i<d;i++){ :]
+    [: var v=data[i]; :]
+    <li class="notice_active_ch">
+        <span>[:= v.content :]</span>                
+        <em>[:= v.createTime :]</em>
+    </li>
+    [: } :]
+</template>
+<!--首页文章轮播列表-->
+<template id="_tpl_book_list" template>
+    [: for(var i=0,d=data.length;i<d;i++){ :]
+    [: var v=data[i]; :]
+    <li>
+        <a href="#">
+            <img src="images/bookBg/book_bg.png" width="180" height="200">
+            <span>[:= v.articleTitle :]</span>
+        </a>
+    </li>
+    [: } :]
+</template>
+<!-- 首页视频模板 -->
+<template id="_tpl_video_item" template>
+    [: for(var i=0,d=data.length;i<d;i++){ :]
+    [: var v=data[i]; :]
+    <div class="video-item">
+        <img class="video-icon" src="images/play.png">
+        <div class="video-box">
+            <video src="[:=v.video:].mp4"></video>
+        </div>
+        <div class="des">[:=v.content:]</div>
+    </div>
+    [: if(d>8){ :]
+    <div class="model_more"><a>查看更多</a>>></div>
+    [: } :]
+    [: } :]
+</template>
+<!-- 首页图文模板 -->
+<template id="_tpl_Img_item" template>
+    [: for(var i=0,d=data.length;i<d;i++){ :]
+    [: var v=data[i]; :]
+    <li>
+        <div class="drawBgV"><img src="[:= v.img :]"></div>
+        <div class="des">[:=v.content:][:=v.imgTitle:]</div>
+    </li>
+    [: if(d>8){ :]
+    <div class="model_more"><a>查看更多</a>>></div>
+    [: } :]
+    [: } :]
+</template>
+
+<!-- 视频栏目列表 -->
+<template id="_tpl_videoList_item" template>
+    [: for(var i=0,d=data.length;i<d;i++){ :]
+    [: var v=data[i]; :]
+    <div class="videoList-item">
+        <img class="video-icon" src="../images/play.png">
+        <video src="[:=v.video:].mp4"></video>
+        <div class="des">[:=v.content:]</div>
+    </div>
+    [: if(d>3){ :]
+    <div class="model_more"><a>查看更多</a>>></div>
+    [: } :]
+    [: } :]
+</template>
+
+<!-- 图文栏目模板 -->
+<template id="_tpl_ImgList_item" template>
+    [: for(var i=0,d=data.length;i<d;i++){ :]
+    [: var v=data[i]; :]
+    <div class="img-list-item">
+        <img src="[:= v.img :]">
+        <div class="des">[:=v.content:][:=v.imgTitle:]</div>
+    </div>
+    [: if(d>4){ :]
+    <div class="model_more"><a>查看更多</a>>></div>
+    [: } :]
+    [: } :]
+</template>
+
+<!-- 文章栏目模板 -->
+<template id="_tpl_article_item" template>
+    [: for(var i=0,d=data.length;i<d;i++){ :]
+    [: var v=data[i]; :]
+    <div class="grand-item">
+        <div class="grand-item-img">
+            <img src="[:= v.imgSrc :]">
+        </div>
+        <div class="grand-item-test">
+            <h2><b>[:= v.articleTitle :]</b></h2>
+            [:= v.p :]
+        </div>
+    </div>
+    <div class="grand-line"></div>
+    [: } :]
+</template>
+
+<!-- 新闻栏目模板 -->
+<template id="_tpl_new_item" template>
+    [: for(var i=0,d=data.length;i<d;i++){ :]
+    [: var v=data[i]; :]
+    <div class="grand-item">
+        <div class="grand-item-img">
+            <img src="[:= v.imgSrc :]">
+        </div>
+        <div class="grand-item-test">
+            <h2><b>[:= v.newsTitle :]</b></h2>
+            [:= v.p :]
+        </div>
+    </div>
+    <div class="grand-line"></div>
+    [: } :]
+</template>

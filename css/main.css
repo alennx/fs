@@ -1,0 +1,494 @@
+/* 全局样式 */
+body {
+    text-align: center; 
+    font-family:"宋体", arial;
+    margin:0; 
+    padding:0; 
+    background: #f2ebe1; 
+    font-size:12px; 
+    color:#000;
+}
+div,form,img,ul,ol,li,dl,dt,dd {
+    margin: 0; 
+    padding: 0; 
+    border: 0; }
+li{
+    list-style-type:none;
+}
+img{
+    vertical-align:top;
+}
+h1,h2,h3,h4,h5,h6 {
+    margin:0; 
+    padding:0;
+    font-weight:bold;
+}
+a{
+    cursor: pointer;
+    color:#000;
+    text-decoration:none;
+}
+/* 
+* 顶部样式 
+*/
+.navbar{
+    background: #f2ebe1;
+    width:100%;
+    height:330px;
+}
+.nav-center{
+    widht:100%;
+    height:130px;
+}
+.nav-list{
+    margin:0 auto;
+    width:800px;
+    height:100%;
+}
+.nav-list ul{
+    width:800px;
+    height:130px;
+    overflow:hidden;
+}
+.nav-list ul li{
+    float:left;
+    display:inline;
+    margin-top:20px;
+    font-size:14px;
+    word-wrap:break-word;
+    word-break:nomal;
+    width:10%;
+    height:100px;
+    cursor: pointer;
+}
+.nav-list ul li .text-right{
+    text-align: right;
+}
+.nav-list ul li a{
+    font-weight: bold;
+}
+.nav-list ul li.active{}
+.nav-list ul li.jg{
+    width:20%
+}
+.nav-logo{
+    position: relative;
+    top:-100px;
+    margin:0 auto;
+    background: url(../images/logo.png) no-repeat;
+    background-size:100% ;
+    width:120px;
+    height:120px;
+}
+/* 顶部背景图 */
+.nav-bg{
+    width:100%;
+    height:200px;
+}
+.nav-bg img{
+    width:100%;
+    height:100%;
+}
+
+/* 模块标题 */
+.model-title{
+    width:100%;
+    height:80px;
+    margin:10px auto;
+}
+.model-title img{
+    height:100%;
+}
+
+/**
+* 主内容
+*/
+.content{
+    position: relative;
+    margin:0 15%;
+    background: #fff;
+    width:70%;
+    height:auto;
+    min-height:700px;
+    padding:1px;
+    overflow: auto;
+}
+/* 悬浮图标 */
+.floating .lp1{
+    position: absolute;
+    top:800px;
+    right:110px;
+    width:200px;
+    height:132px;
+}
+.floating .lp2{
+    position: absolute;
+    top:1400px;
+    left:110px;
+    width:200px;
+    height:132px;
+}
+.floating .lp3{
+    position: absolute;
+    top:3230px;
+    right:150px;
+    width:200px;
+    height:90px;
+}
+.floating .lp4{
+    position: absolute;
+    top:4020px;
+    left:150px;
+    width:200px;
+    height:90px;
+}
+/* 滚动通知 */
+.msg{
+    margin:20px 10%;
+    background: url(../images/boderBg/msgBg.png) no-repeat;
+    background-size:100%; 
+    width:80%;
+    height:70px;
+}
+.notice_active {
+    float: left;
+    width: 80%;
+    height: 4rem;
+    margin:0 10%;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+.notice_active li{
+    list-style-type:none;
+    line-height: 4rem;
+    overflow: hidden;
+}
+.notice_active li.notice_active_ch span p {
+    color:#656972;
+    font-size:1rem;
+    display: block;
+    overflow: hidden; 
+    width:80%;
+    float: left;
+    font-weight: bold;
+    margin:0 0 2rem 0;
+}
+.notice_active li.notice_active_ch em {
+    text-align:right;
+    float:right;
+    color:#888;
+    font-size:0.8rem;
+    font-style:normal;  
+}
+.model{
+    margin:20px 10%;
+    width:80%;
+    height:350px;
+    overflow: hidden;
+}
+.model .model_more{
+    position: relative;
+    bottom: -10px;
+    text-align: right;
+    color:#c7b07e;
+    margin-right:30px;
+    font-weight: bold;
+}
+.model .model_more a{
+    cursor: pointer;
+}
+.model .model_more a:hover{
+    color:#c7b07e;
+}
+.model1{
+    width:90%;
+    margin:20px 5%;
+}
+.model2{
+    height:auto;
+    min-height:300px;
+    overflow: hidden;
+}
+.model3{
+    height:auto;
+    min-height:700px;
+    background: url(../images/boderBg/1k.png) no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100%;
+    padding:30px 0;
+    overflow: hidden;
+}
+.model h1{
+    padding:10px 0;
+}
+
+/* 无数据情况 */
+.model_error{
+    font-size:30px;
+    color:#ccc;
+    margin-top:50px;
+}
+/* 视频组件 */
+.video-list{
+    width:100%;
+}
+.video-item{
+    float: left;
+    width:23%;
+    margin:10px 1%;
+    position: relative;
+    cursor: pointer;
+}
+.video-box{
+    background: url(../images/imgTextBg/zhou.png) no-repeat;
+    background-size:100% 100%; 
+    width:100%;
+    height:120px;
+}
+.video-item video{
+    margin-top: 12px;
+    height: 95px;
+    width: 90%;
+    object-fit: fill;
+}
+.video-icon{
+    position: absolute;
+    left:40%;
+    top:35%;
+    width:40px;
+    height:40px;
+}
+.des{
+    margin:5px 10%;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    width:80%;
+}
+.model-line{
+    background: #c8b17d;
+    height:1px;
+}
+.model-line1{
+    width:90%;
+    margin:30px 5%;
+}
+.model-line2{
+    width:80%;
+    margin:30px 10%;
+}
+.img-text-list{
+    width:100%;
+    min-height:300px;
+    height:auto;
+    overflow: hidden;
+}
+.img-text-list ul{
+    width:100%;
+}
+.img-text-list ul li{
+    width:20%;
+    height:200px;
+    margin:10px 2.5%;
+    float: left;
+}
+.img-text-list ul li .drawBgV{
+    width:100%;
+    height:90%;
+    background: url(../images/imgTextBg/zh.png) no-repeat;
+    background-size:100% 100%;
+    margin-bottom:8px;
+}
+.img-text-list ul li img{
+    margin:10px;
+    width:80%;
+    height:160px;
+}
+.img-text-list ul li span{
+    margin: 0 10%;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 80%;
+}
+/* 底部 */
+.footer{
+    width:100%;
+    height:230px;
+    background: #3d2c1c;
+    overflow: hidden;
+}
+.card{
+    width:100%;
+    height:140px;
+    margin:0 auto;
+}
+.card .or-code{
+    background: url(../images/boderBg/kkk.png) no-repeat;
+    background-size: 100%;
+    margin:10px auto;
+    width:80px;
+    height:80px;
+}
+.card-text{
+    color: #c6b17a;
+    font-size: 14px;
+    font-weight: bold;
+    padding:3px;
+}
+.foooter-menu{
+    margin:10px 25%;
+    width:50%;
+    color:#fff;
+}
+.foooter-menu a{
+    padding:0 5px;
+    color:#fff;
+}
+.other{
+    color:#fff;
+    font-size: 12px;
+}
+
+/**
+* 其他页面样式
+*/
+/* 风水师介绍 */
+.page-title{
+    font-size:40px;
+    font-weight: bold;
+    padding:20px 0;
+}
+.page-content{
+    position: relative;
+    background: url(../images/boderBg/1k.png) no-repeat;
+    background-size: 100% 100%;
+    margin:10px 5%;
+    overflow: hidden;
+    padding-bottom:100px;
+    width:90%;
+    min-height:500px;
+    height:auto;
+}
+.page-content .grand-item{
+    margin:30px 10%;
+    width:80%;
+    height:250px;
+}
+.page-content .grand-item .grand-item-img{
+    float: left;
+    width:30%;
+    height:100%;
+}
+.page-content .grand-item .grand-item-img img{
+    width:100%;
+    height:100%;
+}
+.page-content .grand-item .grand-item-test{
+    padding:10px;
+    float: left;
+    text-align: left;
+    font-size:13px;
+    width:60%;
+}
+.page-content .grand-item .grand-item-test h2{
+    padding:10px 0;
+}
+.grand-line{
+    margin:0 auto;
+    background: #e7e8e3;
+    width:80%;
+    height:3px;
+}
+/* 视频栏目样式 */
+.videoItem,{
+    width: 90%;
+    margin: 0 auto;
+    height:350px;
+}
+.videoItem .videoItem-title{
+    font-size:25px;
+    font-weight: bold;
+    padding:30px 0;
+}
+.videoItem-content{
+    position: relative;
+    top: 0px;
+    min-height: 250px;
+}
+.videoItem .videoList .videoList-item{
+    position: relative;
+    width:33.33%;
+    height:200px;
+    float: left;
+    cursor: pointer;
+}
+.videoItem .videoList .videoList-item video, .img-list .img-list-item img{
+    width:80%;
+    margin:0 10%;
+    height:180px;
+    object-fit: fill;
+}
+.videoList, .img-list{
+    width:90%;
+    margin:0 auto;
+}
+.img-list .img-list-item{
+    position: relative;
+    width:25%;
+    height:200px;
+    float: left;
+    cursor: pointer;
+}
+/* 联系方式 */
+.contact-content{
+    position: relative;
+    background: url(../images/boderBg/1k.png) no-repeat;
+    background-size: 100% 100%;
+    margin:30px 5%;
+    overflow: hidden;
+    padding-bottom:50px;
+    width:90%;
+    height:300px;
+}
+.contact-map{
+    width: 40%;
+    height: 100%;
+    margin: 2.5%;
+    float: left;
+}
+.contact-map img{
+    width: 100%;
+    height: 100%;
+}
+.contact-about{
+    width:50%;
+    height:100%;
+    margin: 2.5%;
+    float: left;
+}
+.contact-about .contact-title{
+    width: 100%;
+    height: 120px;
+    line-height: 170px;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid #c8b080;
+}
+.contact-about .contact-test{
+    width:100%;
+    height:120px;
+    text-align: left;
+    font-size: 14px;
+}
+.contact-about .contact-test div:first-child{
+    margin-top:20px;
+}
+.contact-about .contact-test div{
+    width:100%;
+    padding:5px 0;
+}
