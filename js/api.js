@@ -144,46 +144,127 @@ function getArticleListByStickStatus(){
     })
 }
 // 获取文章栏目列表信息
-function getArticleList(){
-    ajaxload(devUrl+'article/getArticleList',function(res){
+function getArticleList(page,limit){
+    ajaxload(devUrl+'article/getArticleList',{'page':page,'limit':limit},function(res){
         if(res.errorCode == 200){
-            for(var i = 0,len=res.data.length;i<len;i++){
-                res.data[i].p = res.data[i].content.replace(/<[^>]+>/g,"");
-                var arr = res.data[i].content.split('"');
+            for(var i = 0,len=res.data.list.length;i<len;i++){
+                res.data.list[i].p = res.data.list[i].content.replace(/<[^>]+>/g,"");
+                var arr = res.data.list[i].content.split('"');
                 for(var j in arr){
                     console.log(arr[j].indexOf('http'));
                     if(arr[j].indexOf('http')==0){
-                        res.data[i].imgSrc = arr[j];
+                        res.data.list[i].imgSrc = arr[j];
+                    }else{
+                        res.data.list[i].imgSrc = '';
                     }
                 }
             }
             console.log(res);
             var html=tppl(window._tpl_article_item,res);
+            // 分页设置
             $('#article').html(html);
+            $('#Page').paging({
+                initPageNo: res.data.currPage, // 初始页码
+                totalPages: res.data.totalPage, //总页数
+                totalCount: '合计' + res.data.totalCount + '条数据', // 条目总数(隐藏)
+                slideSpeed: 600, // 缓动速度。单位毫秒
+                jump: true, //是否支持跳转
+                func:getArticleList,
+                callback: function(page) { // 回调函数
+                    console.log(page);
+                }
+            })
         }else{
             alert(res.message);
         }
     })
 }
 // 获取新闻栏目列表信息
-function getNewsList(){
-    ajaxload(devUrl+'news/getNewsList',function(res){
+function getNewsList(page,limit){
+    ajaxload(devUrl+'news/getNewsList',{'page':page,'limit':limit}, function(res){
         if(res.errorCode == 200){
-            for(var i = 0,len=res.data.length;i<len;i++){
-                res.data[i].p = res.data[i].content.replace(/<[^>]+>/g,"");
-                var arr = res.data[i].content.split('"');
+            for(var i = 0,len=res.data.list.length;i<len;i++){
+                res.data.list[i].p = res.data.list[i].content.replace(/<[^>]+>/g,"");
+                var arr = res.data.list[i].content.split('"');
                 for(var j in arr){
                     console.log(arr[j].indexOf('http'));
                     if(arr[j].indexOf('http')==0){
-                        res.data[i].imgSrc = arr[j];
+                        res.data.list[i].imgSrc = arr[j];
+                    }else{
+                        res.data.list[i].imgSrc = '';
                     }
                 }
             }
             console.log(res);
             var html=tppl(window._tpl_new_item,res);
             $('#newsList').html(html);
+            // 分页设置
+            $('#article').html(html);
+            $('#Page').paging({
+                initPageNo: res.data.currPage, // 初始页码
+                totalPages: res.data.totalPage, //总页数
+                totalCount: '合计' + res.data.totalCount + '条数据', // 条目总数(隐藏)
+                slideSpeed: 600, // 缓动速度。单位毫秒
+                jump: true, //是否支持跳转
+                func:getNewsList,
+                callback: function(page) { // 回调函数
+                    console.log(page);
+                }
+            })
         }else{
             alert(res.message);
         }
     })
+}
+// 获取视频详情
+function videoDetails (page,limit){
+    var id = getUrlParam('id');
+    var dict = {1:"名人风水考察",2:"寻龙点穴",3:"阴阳宅评断"};
+    console.log(dict[1]);
+    ajaxload(devUrl+'video/getVideoById/'+id, function(res){
+        console.log(res);
+        if(res.errorCode == 200){
+            $(".page-navigation").html("视频解读>"+dict[res.data[0].stickStatus]+">"+res.data[0].videoTitle);
+            $("#videoMp4 source").prop("src",res.data[0].video);
+            $("#videoMp4").load();
+            msgList(1,4);
+        }else{
+            alert(res.message);
+        }
+    })
+}
+// 根据视频ID获取评论列表
+function msgList (page,limit){
+    var id = getUrlParam('id');
+    // 获取视频评论
+    ajaxload(devUrl+'message/getMessageByVideoId',{'page':page,'limit':limit,videoId:id}, function(res){
+        if(res.errorCode == 200){
+            var html=tppl(window._tpl_videoComments_item,res);
+            $('#videoComments-list').html(html);
+            $('#Page').paging({
+                initPageNo: res.data.currPage, // 初始页码
+                totalPages: res.data.totalPage, //总页数
+                totalCount: '合计' + res.data.totalCount + '条数据', // 条目总数(隐藏)
+                slideSpeed: 600, // 缓动速度。单位毫秒
+                jump: true, //是否支持跳转
+                func:msgList,
+                callback: function(page) { // 回调函数
+                    console.log(page);
+                }
+            })
+        }
+        console.log(res2)
+    });
+}
+function addMsg(){
+    var id = getUrlParam('id');
+    var msg = $("#msgDetail").val();
+    var data = {content:msg,createTime:new Date(),videoId:id};
+    console.log(msg);  
+    ajaxload(devUrl+'message/addMessage',data, function(res){
+        console.log(res)
+        if(res.errorCode == 200){
+            
+        }
+    });   
 }
