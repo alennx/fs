@@ -2,6 +2,7 @@
 .scrollpic {
 	width: 1100px;
 	margin:40px auto 0 auto;
+	position: relative;
 }
 #myscroll {
 	display: block;
@@ -29,11 +30,12 @@
 	display: block;
 	float: left;
 	padding: 0;
-	width:200px;
+	width:275px;
 }
 #myscroll ul li a {
 	display: block;
 	float: left;
+	margin:0 45px;
 	width: 180px;
 	padding: 0;
 	position: relative;
@@ -42,8 +44,8 @@
 }
 #myscroll ul li a span{
 	position: absolute;
-	top:28px;
-	right:28px;
+	top: 35px;
+    right: 22px;
 	width: 20px;    
     margin: 0 auto;    
     line-height: 24px;    
@@ -87,10 +89,11 @@
 }
 #mybtns {
 	margin: 10px 0;
-	width: 1100px;
+	width: 1300px;
 	display: block;
 	height: 42px;
-	position: relative;
+	position: absolute;
+	right:-98px;
 	z-index: 999;
 }
 #mybtns a {
@@ -110,14 +113,14 @@
 #mybtns #left {
 	position: absolute;
 	left:80px;
-	top:125px;
+	top:70px;
 	background-image: url(../images/bookBg/left.png);
 	background-size: 100% 100%;
 }
 #mybtns #right {
 	position: absolute;
-	right:20px;
-	top:125px;
+	right:80px;
+	top:70px;
 	background-image: url(../images/bookBg/right.png);
 	background-size: 100% 100%;
 }

@@ -1,13 +1,12 @@
 function scroll(){
     var chw = $(".scrollpic").parent().parent().width();
-    var phw = $(".scrollpic").parent().width();
+    var phw = $(".scrollpic").width();
     console.log(phw);
     // 根据父级宽高调整布局，兼容IE
-    $("#myscrollbox li").width(phw/4);
-    $("#myscrollbox li a").width(phw/4-phw*0.08);
-    $("#myscrollbox li a").css({"margin-left":phw*0.04,"margin-right":phw*0.04});
-    $("#myscrollbox li img").width(phw/4-phw*0.08);
-    $("#mybtns").css({'width':chw,'right':chw*0.08});
+    // $("#myscrollbox li").width(phw/4);
+    // $("#myscrollbox li a").width(phw/4-phw*0.08);
+    // $("#myscrollbox li a").css({"margin-left":phw*0.04,"margin-right":phw*0.04});
+    // $("#myscrollbox li img").width(phw/4-phw*0.08);
     var blw=$("#myscrollbox li").width();
     //获取单个子元素所需宽度
     var liArr = $("#myscrollbox ul").children("li");

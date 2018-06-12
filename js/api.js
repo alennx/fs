@@ -1,5 +1,5 @@
-// var devUrl = 'http://222.85.230.92:30000/geomancy-interface-dev/';//生成环境地址
-var devUrl = '/geomancy-interface-dev/';//跨域代理地址
+var devUrl = 'http://222.85.230.92:30000/geomancy-interface-dev/';//生成环境地址
+// var devUrl = '/geomancy-interface-dev/';//跨域代理地址
 //获取通知消息列表
 function getAnnouncement(){
     ajaxload(devUrl+'announcement/getAnnouncement',function(res){
