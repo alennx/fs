@@ -3,7 +3,7 @@
     [: for(var i=0,d=data.length;i<d;i++){ :]
     [: var v=data[i]; :]
     <li class="notice_active_ch">
-        <span>[:= v.content :]</span>                
+        <span>通知：[:= v.content :]</span>                
         <em>[:= v.createTime :]</em>
     </li>
     [: } :]
@@ -27,7 +27,7 @@
     <div class="video-item">
         <img class="video-icon" src="images/play.png">
         <div class="video-box">
-            <video src="[:=v.video:].mp4"></video>
+            <video src="[:=v.video:]"></video>
         </div>
         <div class="des">[:=v.content:]</div>
     </div>
@@ -54,14 +54,11 @@
 <template id="_tpl_videoList_item" template>
     [: for(var i=0,d=data.length;i<d;i++){ :]
     [: var v=data[i]; :]
-    <div class="videoList-item">
+    <a href="videoPage.html?id=[:=v.id:]" class="videoList-item">
         <img class="video-icon" src="../images/play.png">
-        <video src="[:=v.video:].mp4"></video>
+        <video src="[:=v.video:]"></video>
         <div class="des">[:=v.content:]</div>
-    </div>
-    [: if(d>3){ :]
-    <div class="model_more"><a>查看更多</a>>></div>
-    [: } :]
+    </a>
     [: } :]
 </template>
 
@@ -70,19 +67,17 @@
     [: for(var i=0,d=data.length;i<d;i++){ :]
     [: var v=data[i]; :]
     <div class="img-list-item">
-        <img src="[:= v.img :]">
+        <a href="[:= v.img :]" data-lightbox="[:=v.imgTitle:]" title="[:=v.imgTitle:]"><img src="[:= v.img :]"></a>
+        <!-- <img src="[:= v.img :]"> -->
         <div class="des">[:=v.content:][:=v.imgTitle:]</div>
     </div>
-    [: if(d>4){ :]
-    <div class="model_more"><a>查看更多</a>>></div>
-    [: } :]
     [: } :]
 </template>
 
 <!-- 文章栏目模板 -->
 <template id="_tpl_article_item" template>
-    [: for(var i=0,d=data.length;i<d;i++){ :]
-    [: var v=data[i]; :]
+    [: for(var i=0,d=data.list.length;i<d;i++){ :]
+    [: var v=data.list[i]; :]
     <div class="grand-item">
         <div class="grand-item-img">
             <img src="[:= v.imgSrc :]">
@@ -98,8 +93,8 @@
 
 <!-- 新闻栏目模板 -->
 <template id="_tpl_new_item" template>
-    [: for(var i=0,d=data.length;i<d;i++){ :]
-    [: var v=data[i]; :]
+    [: for(var i=0,d=data.list.length;i<d;i++){ :]
+    [: var v=data.list[i]; :]
     <div class="grand-item">
         <div class="grand-item-img">
             <img src="[:= v.imgSrc :]">
@@ -110,5 +105,15 @@
         </div>
     </div>
     <div class="grand-line"></div>
+    [: } :]
+</template>
+<!-- 视频评论模板 -->
+<template id="_tpl_videoComments_item" template>
+    [: for(var i=0,d=data.list.length;i<d;i++){ :]
+    [: var v=data.list[i]; :]
+    <div class="videoComments-item">
+        <p>[:= v.content :]</p>
+        <span>[:= v.createTime :]</span>
+    </div>
     [: } :]
 </template>

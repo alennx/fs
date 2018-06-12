@@ -163,6 +163,7 @@ a{
     list-style-type:none;
     line-height: 4rem;
     overflow: hidden;
+    font-size: 1.2rem;
 }
 .notice_active li.notice_active_ch span p {
     color:#656972;
@@ -255,7 +256,7 @@ a{
 .video-icon{
     position: absolute;
     left:40%;
-    top:35%;
+    top:32%;
     width:40px;
     height:40px;
 }
@@ -338,7 +339,7 @@ a{
     padding:5%;
 }
 .card-text{
-    color: #c6b17a;
+    color: #C8B17D;
     font-size: 14px;
     font-weight: bold;
     padding:3px;
@@ -401,6 +402,83 @@ a{
 .page-content .grand-item .grand-item-test h2{
     padding:10px 0;
 }
+.page-content .page-navigation{
+    padding: 50px 20px;
+    float: left;
+    margin-left: 30px;
+    font-size: 14px;
+    color: #ccc;
+    font-weight: bold;
+    word-spacing: 8px;
+    letter-spacing: 1px;
+}
+.page-content .page-videoBox{
+    width:90%;
+    margin:100px auto 50px auto;
+}
+.page-content .videoComments{
+    width:90%;
+    margin:0 auto;
+}
+.page-content .videoComments .videoComments-title{
+    font-size: 20px;
+    font-weight: bold;
+    color: #C8B17D;
+    height: 30px;
+    border-bottom: 2px solid #C8B17D;
+    text-align: left;
+}
+.page-content .videoComments .videoComments-input{
+    float: left;
+    margin-top:20px;
+    height: 180px;
+    position: relative;
+}
+.page-content .videoComments .videoComments-input textarea{
+    background: #E6E6E6;
+    resize: none;
+    border:none;
+    border-radius: 10px;
+    padding:20px;
+    text-align: left;
+    color:#999;
+}
+.page-content .videoComments .videoComments-input textarea:focus{
+    border:none;
+}
+.page-content .videoComments .videoComments-input button{
+    width:100px;
+    height:30px;
+    border-radius: 22px;
+    background: #C8B17D;
+    color:#fff;
+    position: absolute;
+    bottom:20px;
+    left:0;
+}
+.page-content .videoComments .videoComments-list{
+    width:90%;
+    margin:0 auto;
+    position: relative;
+    overflow: hidden;
+}
+.page-content .videoComments .videoComments-list .videoComments-item{
+    width:100%;
+    height:auto;
+    min-height:60px;
+    border-bottom:1px solid #C8B17D;
+    padding-bottom:10px;
+}
+.page-content .videoComments .videoComments-list .videoComments-item p{
+    font-size: 14px;
+    width:70%;
+    padding:2.5px;
+    text-align: left;
+}
+.page-content .videoComments .videoComments-list .videoComments-item span{
+    float: left;
+    padding:2.5px;
+}
 .grand-line{
     margin:0 auto;
     background: #e7e8e3;
@@ -408,10 +486,12 @@ a{
     height:3px;
 }
 /* 视频栏目样式 */
-.videoItem,{
+.videoItem{
     width: 90%;
     margin: 0 auto;
-    height:350px;
+    min-height:350px;
+    height:auto;
+    overflow: hidden;
 }
 .videoItem .videoItem-title{
     font-size:25px;
@@ -422,6 +502,7 @@ a{
     position: relative;
     top: 0px;
     min-height: 250px;
+    height:auto;
 }
 .videoItem .videoList .videoList-item{
     position: relative;
@@ -429,6 +510,7 @@ a{
     height:200px;
     float: left;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 .videoItem .videoList .videoList-item video, .img-list .img-list-item img{
     width:80%;
@@ -442,10 +524,11 @@ a{
 }
 .img-list .img-list-item{
     position: relative;
-    width:25%;
-    height:200px;
+    width: 25%;
+    height: 220px;
     float: left;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 /* 联系方式 */
 .contact-content{

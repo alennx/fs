@@ -8,6 +8,7 @@
             totalCount: options.totalCount || '', // 条目总数
             slideSpeed: options.slideSpeed || 0, // 缓动速度
             jump: options.jump || false, // 支持跳转
+            func: options.func || false,
             callback: options.callback || function() {} // 回调函数
         };
         this.init();
@@ -24,7 +25,7 @@
                 ulDom = '',
                 jumpDom = '',
                 content = '',
-                liWidth = 60, // li的宽度
+                liWidth = 40, // li的宽度
                 totalPages = that.options.totalPages, // 总页数
                 wrapLength = 0;
             totalPages > 5 ? wrapLength = 5 * liWidth : wrapLength = totalPages * liWidth;
@@ -67,22 +68,34 @@
             prePage.on('click', function() {
                 pageIndex--;
                 if (pageIndex < 1) pageIndex = 1;
+                if(!!that.options.func){
+                    that.options.func(pageIndex,4);
+                }
                 handles(pageIndex);
             })
 
             nextPage.on('click', function() {
                 pageIndex++;
                 if (pageIndex > lis.length) pageIndex = lis.length;
+                if(!!that.options.func){
+                    that.options.func(pageIndex,4);
+                }
                 handles(pageIndex);
             })
 
             firstPage.on('click', function() {
                 pageIndex = 1;
+                if(!!that.options.func){
+                    that.options.func(pageIndex,4);
+                }
                 handles(pageIndex);
             })
 
             lastPage.on('click', function() {
                 pageIndex = totalPages;
+                if(!!that.options.func){
+                    that.options.func(pageIndex,4);
+                }
                 handles(pageIndex);
             })
 

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>新闻资讯</title>
+	<title>视频解读</title>
 	<!-- Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="" />
 	<link href="../css/main.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="../css/plyr.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="../css/page.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
@@ -19,11 +20,11 @@
                     <li></li>
                     <li><a href="../index.html"><img src="../images/navBar/01.png"></a></li>
                     <li><a href="grandmaster.html"><img src="../images/navBar/02.png"></a></li>
-                    <li><a href="video.html"><img src="../images/navBar/03.png"></a></li>
+                    <li><a href="video.html"><img src="../images/navBar/03-2.png"></a></li>
                     <li class="jg"></li>
                     <li><a href="imgList.html"><img src="../images/navBar/04.png"></a></li>
                     <li><a href="article.html"><img src="../images/navBar/05.png"></a></li>
-                    <li><a href="news.html"><img src="../images/navBar/06-2.png"></a></li>
+                    <li><a href="news.html"><img src="../images/navBar/06.png"></a></li>
                     <li><a href="contact.html"><img src="../images/navBar/07.png"></a></li>
                 </ul>
             </div>
@@ -31,23 +32,49 @@
         </div>
         <!-- 背景图 -->
         <div class="nav-bg">
-            <img src="../images/navImg/tu6.jpg">
+            <img src="../images/navImg/tu3.jpg">
         </div>
     </div>
     <!-- 主内容 -->
     <div class="content">
-        <div class="page-title">新闻资讯</div>
-        <div class="page-content" id="newsList">
-            <div class="model_error">暂无数据</div>
+        <div class="page-title">视频解读</div>
+        <div class="page-content">
+            <div class="page-navigation">视频解读>名人风水考察>标题内容</div>
+            <div class="page-videoBox">
+                <video id="videoMp4" controls>
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
+            <div class="videoComments">
+                <div class="videoComments-title">
+                    <p>全部评论</p>
+                </div>
+                <div class="videoComments-input">
+                    <textarea id="msgDetail" placeholder="发表评论……" rows="5" cols="70"></textarea>
+                    <button onclick="addMsg()">发表评论</button>
+                </div>
+                <div class="videoComments-list" id="videoComments-list">
+                    <div class="videoComments-item">
+                        <p>评论内容评论内容评论内容评论内容</p>
+                        <span>2018-02-05</span>
+                    </div>
+                    <div class="videoComments-item">
+                        <p>评论内容评论内容评论内容评论内容</p>
+                        <span>2018-02-05</span>
+                    </div>
+                    <div class="videoComments-item">
+                        <p>评论内容评论内容评论内容评论内容</p>
+                        <span>2018-02-05</span>
+                    </div>
+                </div>
+            </div>
+            <div class="box" id="Page"></div>
         </div>
-        <div class="box" id="Page"></div>
     </div>
     <!-- 底部 -->
     <div class="footer">
         <div class="card">
-            <div class="or-code">
-                <img src="../images/Orcode.png">
-            </div>
+            <div class="or-code"></div>
             <div class="card-text">XXXX的微信</div>
             <div class="card-text">联系电话：13111111111</div>
         </div>
@@ -65,6 +92,7 @@
 </body>
 <script src="../lib/jquery1.9.1.min.js" type="text/javascript"></script>
 <script src="../js/page.js"></script>
+<script src="../lib/plyr.js" type="text/javascript"></script>
 <script src="../lib/tppl.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function(){
@@ -74,7 +102,8 @@
         // $('.lp3').css('top',h*0.8);
         // $('.lp4').css('top',h*0.95);
         loadCompontent(function(){});
-        getNewsList(1,4);
+        videoDetails();
+        plyr.setup();
     });
 </script>
 <script src="../service/common.js"></script>
