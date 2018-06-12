@@ -1,3 +1,7 @@
+$(function(){
+    console.log("图片地址："+$("img")[0].src);
+});
+
 // var devUrl = 'http://222.85.230.92:30000/geomancy-interface-dev/';//生成环境地址
 var devUrl = '/geomancy-interface-dev/';//跨域代理地址
 //获取通知消息列表
@@ -137,7 +141,6 @@ function getArticleListByStickStatus(){
         if(res.errorCode == 200){
             var html=tppl(window._tpl_book_list,res);
             $('#bookList').html(html);
-            scroll();
         }else{
             alert(res.message);
         }
@@ -154,8 +157,6 @@ function getArticleList(page,limit){
                     console.log(arr[j].indexOf('http'));
                     if(arr[j].indexOf('http')==0){
                         res.data.list[i].imgSrc = arr[j];
-                    }else{
-                        res.data.list[i].imgSrc = '';
                     }
                 }
             }
@@ -190,8 +191,6 @@ function getNewsList(page,limit){
                     console.log(arr[j].indexOf('http'));
                     if(arr[j].indexOf('http')==0){
                         res.data.list[i].imgSrc = arr[j];
-                    }else{
-                        res.data.list[i].imgSrc = '';
                     }
                 }
             }
@@ -199,7 +198,6 @@ function getNewsList(page,limit){
             var html=tppl(window._tpl_new_item,res);
             $('#newsList').html(html);
             // 分页设置
-            $('#article').html(html);
             $('#Page').paging({
                 initPageNo: res.data.currPage, // 初始页码
                 totalPages: res.data.totalPage, //总页数
@@ -253,18 +251,62 @@ function msgList (page,limit){
                 }
             })
         }
-        console.log(res2)
     });
 }
+// 新增评论
 function addMsg(){
     var id = getUrlParam('id');
     var msg = $("#msgDetail").val();
-    var data = {content:msg,createTime:new Date(),videoId:id};
-    console.log(msg);  
+    console.log(typeof(parseFloat(id)));
+    var data = {content:msg,createTime:new Date(),videoId:parseFloat(id)};
+    data = JSON.stringify(data);
+    console.log(data);  
     ajaxload(devUrl+'message/addMessage',data, function(res){
         console.log(res)
         if(res.errorCode == 200){
-            
+            msgList(1,4);
+            alert(res.message);
+        }else{
+            alert(res.message);
+        }
+    });   
+}
+// 跳转详情页
+function openDetail(id,type){
+    console.log("跳转详情页");
+    window.location.replace("articleDetail.html" +"?id="+id+"&type="+type);
+}
+// 获取文章信息
+function getArtDetail(){
+    var id = getUrlParam('id');
+    var type = getUrlParam('type');
+    var url = "",name="";
+    if(type=="1"){
+        url = "article/getArticleInfo?id=";
+        name = "文章鉴赏>";
+    }else{
+        url = "news/getNewsInfo?id=";
+        name = "新闻资讯>";
+    }
+    ajaxload(devUrl+url+id, function(res){
+        console.log(res)
+        if(res.errorCode == 200){
+            res.data.p = res.data.content.replace(/<[^>]+>/g,"");
+            var arr = res.data.content.split('"');
+            console.log("arr"+arr);
+            for(var j in arr){
+                console.log(arr[j].indexOf('http'));
+                if(arr[j].indexOf('http')==0){
+                    console.log("img"+arr[j]);
+                    res.data.imgSrc = arr[j];
+                }
+            }
+            $(".page-navigation").html(name+res.data.articleTitle);
+            $(".articleComments-title h1").html(res.data.articleTitle);
+            $(".articleComments-title span").html(res.data.createTime);
+            $(".articleComments-content img").attr('src',res.data.imgSrc);
+            $(".articleComments-content p").html(res.data.p);
+            console.log(res);
         }
     });   
 }

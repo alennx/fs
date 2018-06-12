@@ -78,7 +78,7 @@
 <template id="_tpl_article_item" template>
     [: for(var i=0,d=data.list.length;i<d;i++){ :]
     [: var v=data.list[i]; :]
-    <div class="grand-item">
+    <div class="grand-item" onclick="openDetail('[:=v.id:]',1)">
         <div class="grand-item-img">
             <img src="[:= v.imgSrc :]">
         </div>
@@ -95,7 +95,7 @@
 <template id="_tpl_new_item" template>
     [: for(var i=0,d=data.list.length;i<d;i++){ :]
     [: var v=data.list[i]; :]
-    <div class="grand-item">
+    <div class="grand-item" onclick="openDetail('[:=v.id:]',2)">
         <div class="grand-item-img">
             <img src="[:= v.imgSrc :]">
         </div>

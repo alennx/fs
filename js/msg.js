@@ -5,7 +5,7 @@ function timer(opj){
         $(this).css({marginTop : "0rem"}).find("li:first").appendTo(this);  
     })  
 }
-$(function(){ 
+$(function(){
     var num = $('.notice_active').find('li').length;
     var time=setInterval('timer(".notice_active")',3500);
     $('.gg_more a').mousemove(function(){
