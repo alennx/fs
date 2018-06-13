@@ -34,12 +34,9 @@ function ajaxload(url,data,callback){
 }
 
 function loadCompontent(callback,tplurl){
-	console.log(tplurl);
-	console.log("1111");
 	if(!tplurl){
 		tplurl='component.html';
 	}
-	console.log(tplurl);
     $.ajax({
         url:tplurl,
         type:'GET',

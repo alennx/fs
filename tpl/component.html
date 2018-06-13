@@ -24,13 +24,13 @@
 <template id="_tpl_video_item" template>
     [: for(var i=0,d=data.length;i<d;i++){ :]
     [: var v=data[i]; :]
-    <div class="video-item">
+    <a class="video-item" href="tpl/videoPage.html?id=[:=v.id:]">
         <img class="video-icon" src="images/play.png">
         <div class="video-box">
             <video src="[:=v.video:]"></video>
         </div>
         <div class="des">[:=v.content:]</div>
-    </div>
+    </a>
     [: if(d>8){ :]
     <div class="model_more"><a>查看更多</a>>></div>
     [: } :]
@@ -41,7 +41,10 @@
     [: for(var i=0,d=data.length;i<d;i++){ :]
     [: var v=data[i]; :]
     <li>
-        <div class="drawBgV"><img src="[:= v.img :]"></div>
+        <div class="drawBgV">
+            <a href="[:= v.img :]" data-lightbox="[:=v.imgTitle:]" title="[:=v.imgTitle:]"><img src="[:= v.img :]"></a>
+            <!-- <img src="[:= v.img :]"> -->
+        </div>
         <div class="des">[:=v.content:][:=v.imgTitle:]</div>
     </li>
     [: if(d>8){ :]

@@ -1,5 +1,8 @@
 $(function(){
     console.log("图片地址："+$("img")[0].src);
+    $("img").on("error", function () {
+        $(this).attr("src", "../images/default.jpg");
+    });
 });
 
 // var devUrl = 'http://222.85.230.92:30000/geomancy-interface-dev/';//生成环境地址
@@ -152,6 +155,7 @@ function getArticleList(page,limit){
         if(res.errorCode == 200){
             for(var i = 0,len=res.data.list.length;i<len;i++){
                 res.data.list[i].p = res.data.list[i].content.replace(/<[^>]+>/g,"");
+                res.data.list[i].imgSrc="../images/default.jpg";
                 var arr = res.data.list[i].content.split('"');
                 for(var j in arr){
                     console.log(arr[j].indexOf('http'));
@@ -186,6 +190,7 @@ function getNewsList(page,limit){
         if(res.errorCode == 200){
             for(var i = 0,len=res.data.list.length;i<len;i++){
                 res.data.list[i].p = res.data.list[i].content.replace(/<[^>]+>/g,"");
+                res.data.list[i].imgSrc="../images/default.jpg";
                 var arr = res.data.list[i].content.split('"');
                 for(var j in arr){
                     console.log(arr[j].indexOf('http'));
@@ -258,7 +263,7 @@ function addMsg(){
     var id = getUrlParam('id');
     var msg = $("#msgDetail").val();
     console.log(typeof(parseFloat(id)));
-    var data = {content:msg,createTime:new Date(),videoId:parseFloat(id)};
+    var data = {content:msg,videoId:parseFloat(id)};
     data = JSON.stringify(data);
     console.log(data);  
     ajaxload(devUrl+'message/addMessage',data, function(res){
