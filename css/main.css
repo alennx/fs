@@ -308,6 +308,7 @@ a{
     height:250px;
     margin:10px 2.5%;
     float: left;
+    cursor: pointer;
 }
 .img-text-list ul li .drawBgV{
     width:100%;
@@ -468,7 +469,7 @@ a{
     background: #C8B17D;
     color:#fff;
     position: absolute;
-    bottom:20px;
+    bottom: 0.5rem;
     left:0;
 }
 .page-content .videoComments .videoComments-list{
@@ -554,13 +555,14 @@ a{
     overflow: hidden;
     padding-bottom:50px;
     width:90%;
-    height:300px;
+    height:600px;
 }
 .contact-map{
     width: 40%;
     height: 100%;
     margin: 2.5%;
     float: left;
+    cursor: pointer;
 }
 .contact-map img{
     width: 100%;
