@@ -110,6 +110,9 @@
 
             lis.on('click', function() {
                 pageIndex = $(this).index() + 1;
+                if(!!that.options.func){
+                    that.options.func(pageIndex,4);
+                }
                 handles(pageIndex);
             })
 
