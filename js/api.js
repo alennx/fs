@@ -1,12 +1,6 @@
-$(function(){
-    console.log("图片地址："+$("img")[0].src);
-    $("img").on("error", function () {
-        $(this).attr("src", "../images/default.jpg");
-    });
-});
 
 // var devUrl = 'http://222.85.230.92:30000/geomancy-interface-dev/';//生成环境地址
-var devUrl = '/geomancy-interface-dev/';//跨域代理地址
+var devUrl = '/geo-interface/';//跨域代理地址
 //获取通知消息列表
 function getAnnouncement(){
     ajaxload(devUrl+'announcement/getAnnouncement',function(res){

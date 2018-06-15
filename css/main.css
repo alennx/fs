@@ -144,11 +144,11 @@ a{
 }
 /* 滚动通知 */
 .msg{
-    margin:20px 10%;
+    margin:20px auto;
     background: url(../images/boderBg/msgBg.png) no-repeat;
     background-size:100%; 
-    width:80%;
-    height:6rem;
+    width:50%;
+    height:4rem;
 }
 .notice_active {
     float: left;
@@ -400,9 +400,21 @@ a{
     text-align: left;
     font-size:13px;
     width:60%;
+    height:250px;
 }
 .page-content .grand-item .grand-item-test h2{
     padding:10px 0;
+}
+.page-content .grand-item .grand-item-test p{
+    display: block;
+    display: -webkit-box;
+    height: 250p;
+    font-size: 16px;
+    line-height: 1.4;
+    -webkit-line-clamp: 9;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .page-content .page-navigation{
     padding: 50px 20px;
