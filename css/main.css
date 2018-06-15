@@ -408,7 +408,7 @@ a{
 .page-content .grand-item .grand-item-test p{
     display: block;
     display: -webkit-box;
-    height: 250p;
+    margin: 0 auto;
     font-size: 16px;
     line-height: 1.4;
     -webkit-line-clamp: 9;
